@@ -1,0 +1,62 @@
+# flypy.schema.yaml
+# encoding: utf-8
+
+schema:
+  schema_id: flypy
+
+switches:
+  - name: simplification
+
+__include: quad-s:/
+
+__patch:
+  engine/filters/@after 0: lua_filter@*quad*aux_filter@stroke.dict
+
+speller:
+  alphabet: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[\t"
+  delimiter: " '"
+  algebra:
+    - erase/^xx$/
+    - derive/^([aoe])([ioun])$/$1$1$2/
+    - xform/^([aoe])(ng)?$/$1$1$2/
+    - xform/iu$/Ⓠ/
+    - xform/(.)ei$/$1Ⓦ/
+    - xform/uan$/Ⓡ/
+    - xform/[uv]e$/Ⓣ/
+    - xform/un$/Ⓨ/
+    - xform/^sh/Ⓤ/
+    - xform/^ch/Ⓘ/
+    - xform/^zh/Ⓥ/
+    - xform/uo$/Ⓞ/
+    - xform/ie$/Ⓟ/1
+    - xform/(.)i?ong$/$1Ⓢ/
+    - xform/ing$|uai$/Ⓚ/
+    - xform/(.)ai$/$1Ⓓ/
+    - xform/(.)en$/$1Ⓕ/
+    - xform/(.)eng$/$1Ⓖ/
+    - xform/[iu]ang$/Ⓛ/
+    - xform/(.)ang$/$1Ⓗ/
+    - xform/ian$/Ⓜ/
+    - xform/(.)an$/$1Ⓙ/
+    - xform/(.)ou$/$1Ⓩ/
+    - xform/[iu]a$/Ⓧ/
+    - xform/iao$/Ⓝ/
+    - xform/(.)ao$/$1Ⓒ/
+    - xform/ui$/Ⓥ/
+    - xform/in$/Ⓑ/
+    - xlit/ⓆⓌⓇⓉⓎⓊⒾⓄⓅⓈⒹⒻⒼⒽⒿⓀⓁⓏⓍⒸⓋⒷⓃⓂ/qwrtyuiopsdfghjklzxcvbnm/
+
+translator:
+  dictionary: flypy
+
+simplifier:
+  option_name: simplification
+  opencc_config: s2t.json
+
+key_binder:
+  import_preset: default
+
+punctuator:
+  half_shape:
+    "\\": "、"
+  import_preset: default

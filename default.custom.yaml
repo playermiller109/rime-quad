@@ -1,0 +1,16 @@
+
+patch:
+  "switcher/hotkeys":
+  "key_binder/bindings":
+    __include: "quad-c:/key_bindings"
+  "menu/page_size": 9
+  "punctuator/+":
+    __include: "quad-c:/punctuator"
+  schema_list:
+    - schema: japanese
+    - schema: flypy
+  "ascii_composer":
+    good_old_caps_lock: true
+    switch_key:
+      Eisu_toggle: clear
+      Caps_Lock: noop

@@ -1,0 +1,9 @@
+build/
+dicts/
+*.userdb/
+*.log
+
+installation.yaml
+user.yaml
+
+git-*.bat

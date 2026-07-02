@@ -1,0 +1,25 @@
+# quad-custom.yaml
+# encoding: utf-8
+
+key_bindings:
+  - { accept: ISO_Left_Tab, send: "Shift+Left", when: composing }
+  - { accept: "Shift+Tab", send: "Shift+Left", when: composing }
+  - { accept: "Control+a", send: "Shift+Right", when: composing }
+  - { accept: minus, send: Page_Up, when: composing }
+  - { accept: equal, send: Page_Down, when: composing }
+  - { accept: "\\", select: .next, when: composing }
+  - { accept: "Control+Shift+3", toggle: full_shape, when: has_menu }
+  - { accept: "Control+Shift+numbersign", toggle: full_shape, when: has_menu }
+  - { accept: "Control+Shift+J", toggle: simplification, when: has_menu }
+  - { accept: "Control+period", toggle: ascii_punct, when: always }
+
+punctuator:
+  half_shape:
+    "$": "$"
+    "%": "%"
+    "*": "*"
+    "/": "/"
+    "{": "{"
+    "|": "|"
+    "}": "}"
+    "~": "~"

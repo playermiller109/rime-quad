@@ -1,0 +1,8 @@
+b ✏️ 1
+d · 1
+co console.log 1
+moe module.exports 1
+pl playermiller 2
+s ︿ 5
+wb <wbr> 1
+wb <wbr　> 2
