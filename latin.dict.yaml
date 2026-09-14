@@ -1,0 +1,83 @@
+# Rime dictionary
+# encoding: utf-8
+# international latin
+
+---
+name: latin
+version: '2026'
+sort: original
+...
+
+# spanish letters
+ñ	[n
+Ñ	[N
+á	[a
+Á	[A
+é	[e
+É	[E
+í	[i
+Í	[I
+ó	[o
+Ó	[O
+ú	[u
+Ú	[U
+ý	[y
+Ý	[Y
+# hungarian letters
+ő	[k
+Ő	[K
+ű	[w
+Ű	[W
+# redundancy for ease of entry
+ű	[l
+Ű	[L
+# german letters
+ß	[b
+ẞ	[B
+ö	[d
+Ö	[D
+ü	[s
+Ü	[S
+ä	[r
+Ä	[R
+# portuguese letters
+â	[ja
+Â	[jA
+ã	[xa
+Ã	[xA
+à	[fa
+À	[fA
+ç	[c
+Ç	[C
+ê	[je
+Ê	[jE
+ô	[jo
+Ô	[jO
+õ	[xo
+Õ	[xO
+# french letters
+è	[fe
+È	[fE
+ù	[fu
+Ù	[fU
+î	[ji
+Î	[jI
+û	[ju
+Û	[jU
+ë	[ve
+Ë	[vE
+ï	[vi
+Ï	[vI
+ÿ	[vy
+Ÿ	[vY
+œ	[go
+Œ	[gO
+æ	[ga
+Æ	[gA
+# extra accented letters
+ì	[fi
+Ì	[fI
+ò	[fo
+Ò	[fO
+ỳ	[fy
+Ỳ	[fY

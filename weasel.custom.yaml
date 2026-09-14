@@ -1,0 +1,14 @@
+customization:
+  distribution_code_name: Weasel
+  distribution_version: 0.17.0
+  generator: "Weasel::UIStyleSettings"
+  modified_time: "Sat Mar 28 21:40:52 2026"
+  rime_version: 1.13.1
+patch:
+  style/+:
+    font_point: 12
+    comment_font_point: 10
+    label_font_point: 10
+    label_font_face: "Consolas"
+  style/layout/min_width: 80
+  style/color_scheme: youtube

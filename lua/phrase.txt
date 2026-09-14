@@ -1,0 +1,15 @@
+✏️ b 1
+・ d 1
+→ jt 5
+︿ s 5
+
+console.log co 1
+module.exports moe 1
+playermiller pl 1
+<wbr> wb 1
+<wbr　> wb 2
+
+「」 [] 1
+【】 [] 2
+〔〕 [] 3
+《》 <> 1
