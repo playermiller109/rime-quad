@@ -1,0 +1,86 @@
+# flypy.schema.yaml
+# encoding: utf-8
+
+schema:
+  schema_id: flypy
+
+switches:
+  - name: simplification
+
+engine:
+  processors:
+    - lua_processor@*quad*main_proc
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - lua_translator@*quad*email_trans
+    - lua_translator@*quad*es_trans
+    - script_translator
+    - punct_translator
+    - reverse_lookup_translator
+  filters:
+    - lua_filter@*aux_lit
+    - simplifier
+    - lua_filter@*phrase
+    - uniquifier
+
+speller:
+  alphabet: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[\t"
+  delimiter: " '"
+  algebra:
+    - erase/^xx$/
+    - derive/^([aoe])([ioun])$/$1$1$2/
+    # - xform/^([aoe])(ng)?$/$1$1$2/
+    - derive/iu$/Ⓠ/
+    - derive/(.)ei$/$1Ⓦ/
+    - derive/uan$/Ⓡ/
+    - derive/[uv]e$/Ⓣ/
+    - derive/un$/Ⓨ/
+    - derive/^sh/Ⓤ/
+    - derive/^ch/Ⓘ/
+    - derive/^zh/Ⓥ/
+    - derive/uo$/Ⓞ/
+    - derive/ie$/Ⓟ/1
+    - derive/(.)i?ong$/$1Ⓢ/
+    - derive/ing$|uai$/Ⓚ/
+    - derive/(.)ai$/$1Ⓓ/
+    - derive/(.)en$/$1Ⓕ/
+    - derive/(.)eng$/$1Ⓖ/
+    - derive/[iu]ang$/Ⓛ/
+    - derive/(.)ang$/$1Ⓗ/
+    - derive/ian$/Ⓜ/
+    - derive/(.)an$/$1Ⓙ/
+    - derive/(.)ou$/$1Ⓩ/
+    - derive/[iu]a$/Ⓧ/
+    - derive/iao$/Ⓝ/
+    - derive/(.)ao$/$1Ⓒ/
+    - derive/ui$/Ⓥ/
+    - derive/in$/Ⓑ/
+    - xlit/ⓆⓌⓇⓉⓎⓊⒾⓄⓅⓈⒹⒻⒼⒽⒿⓀⓁⓏⓍⒸⓋⒷⓃⓂ/qwrtyuiopsdfghjklzxcvbnm/
+
+translator:
+  dictionary: flypy
+
+simplifier:
+  option_name: simplification
+  opencc_config: s2t.json
+
+recognizer:
+  patterns:
+    bracket_pair: '^(?:\[\]|<>)$'
+  import_preset: default
+
+bracket_pair:
+  tag: bracket_pair

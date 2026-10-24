@@ -1,0 +1,67 @@
+# japanese.schema.yaml
+# vim: set sw=2 sts=2 et:
+# encoding: utf-8
+
+schema:
+  schema_id: japanese
+  icon: "lua/ext/es.ico"
+  dependencies:
+    - latin
+    - flypy
+    - stroke
+
+__include: flypy.schema:/
+
+__patch:
+  "engine/processors/@after 0": lua_processor@*quad*kana_proc
+  "engine/segmentors/@after 1": affix_segmentor@putonghua_to_kanji_lookup
+  "engine/translators/@after 2": script_translator@flypy_dict
+  "engine/translators/@next": script_translator@putonghua_to_kanji_lookup
+
+  "engine/filters/@after 0": lua_filter@*quad*s2jp_filter
+  "engine/filters/@after 1": lua_filter@*quad*kana_filter
+  "engine/filters/@next": reverse_lookup_filter@putonghua_to_kanji_reverse_lookup
+
+  "speller/algebra/+":
+    - 'derive/_/x/'
+    - 'derive/-/q/'
+    - 'derive/i_e/ye/'
+    - 'derive/shi/si/'
+    - 'derive/chi/ti/'
+    - 'derive/tsu/tu/'
+
+translator:
+  dictionary: japanese
+  spelling_hints: 99
+  comment_format:
+    - 'xlit|q|ー|'
+    - 'xform/.+/\x01/'
+
+flypy_dict:
+  __include: flypy.schema:/translator
+
+recognizer:
+  __include: flypy.schema:/recognizer
+  patterns:
+    putonghua_to_kanji_lookup: '\][a-z;/,.]*$'
+
+putonghua_to_kanji_lookup:
+  tag: putonghua_to_kanji_lookup
+  dictionary: flypy
+  tips: 【普查日】
+  # requires recognizer pattern
+  prefix: "]"
+
+putonghua_to_kanji_reverse_lookup:
+  tags: [ putonghua_to_kanji_lookup ]
+  dictionary: japanese
+  comment_format:
+    - 'xlit|q|ー|'
+    - 'xform/^/ /'
+    - 'xform/ /·/'
+
+key_binder:
+  import_preset: default
+
+punctuator:
+  import_preset: default
