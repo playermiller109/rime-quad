@@ -1,0 +1,14 @@
+# Rime dictionary
+# encoding: utf-8
+
+---
+name: flypy
+version: '2026'
+
+import_tables:
+  - dicts/zh/8105
+  - dicts/zh/base
+  - dicts/zh/ext
+  - dicts/zh/tencent
+  - dicts/zh/others
+...

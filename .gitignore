@@ -1,0 +1,10 @@
+git-*.bat
+
+build/
+dicts/
+*.userdb/
+*.log
+
+installation.yaml
+stroke.dict.yaml
+user.yaml
